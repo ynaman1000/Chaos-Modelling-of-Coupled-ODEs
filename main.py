@@ -85,22 +85,22 @@ def implct(stp):
 	states_arr.append([t, theta1, theta2, theta1_dot, theta2_dot, p1, p2])
         return states_arr
         
-f = open("out.txt", "r")
-dat = []
-while True:
-	line = f.readline()
-	if line == '':
-		break
-	else:
-		dat.extend([[float(i) for i in line.split(' ')]])
-dat = np.array(dat)
-# print(dat[3:, 0])
-plt.plot(dat[3:, 0], dat[3:, 1])
-plt.plot(dat[0:3, 0], dat[0:3, 1], 'ko')
-# plt.plot(dat[:, 0], dat[:, 1], 'ko')
-for r in dat[0:3, :]:
-	plt.text(r[0], r[1], '({}, {})'.format(r[0], r[1]))
-plt.xlabel('x')
-plt.ylabel('y')
-plt.savefig('chain_py.png')
-plt.show()
+# f = open("out.txt", "r")
+# dat = []
+# while True:
+# 	line = f.readline()
+# 	if line == '':
+# 		break
+# 	else:
+# 		dat.extend([[float(i) for i in line.split(' ')]])
+# dat = np.array(dat)
+# # print(dat[3:, 0])
+# plt.plot(dat[3:, 0], dat[3:, 1])
+# plt.plot(dat[0:3, 0], dat[0:3, 1], 'ko')
+# # plt.plot(dat[:, 0], dat[:, 1], 'ko')
+# for r in dat[0:3, :]:
+# 	plt.text(r[0], r[1], '({}, {})'.format(r[0], r[1]))
+# plt.xlabel('x')
+# plt.ylabel('y')
+# plt.savefig('chain_py.png')
+# plt.show()

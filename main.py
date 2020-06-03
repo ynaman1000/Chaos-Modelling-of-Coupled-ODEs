@@ -28,32 +28,12 @@ for j in range (0,8):
             states_arr.append([t, theta1, theta2, theta1_dot, theta2_dot, p1, p2])
             t = ti+stp
             if solver == "E":
-              explct(stp)
+              theta1, theta2, p1, p2, theta1_dot, theta2_dot = explct(stp, theta1, theta2, p1, p2)
+            if solver == "I":
+              theta1, theta2, p1, p2, theta1_dot, theta2_dot = implct(stp, theta1, theta2, p1, p2)
+            if solver == "RK4":
+              theta1, theta2, p1, p2, theta1_dot, theta2_dot = RK4(stp, theta1, theta2, p1, p2)
+            if solver == "RK6":
+              theta1, theta2, p1, p2, theta1_dot, theta2_dot = RK6(stp, theta1, theta2, p1, p2)
     states_arr.append([t, theta1, theta2, theta1_dot, theta2_dot, p1, p2])
   
-  def implct(stp):
-        theta1_iter = theta1_prev = theta_1
-        theta2_iter = theta2_prev = theta_2
-        p1_iter = p1_prev = p_1
-        p2_iter = p2_prev = p_2
-
-        theta1 = theta_1_prev + stp*theta1_dot_fun(theta1_iter, theta2_iter, p1_iter, p2_iter)
-        theta2 = theta_2_prev + stp*theta2_dot_fun(theta1_iter, theta2_iter, p1_iter, p2_iter)
-        p1 = p_1_prev + stp*p1_dot_fun(theta1_iter, theta2_iter, p1_iter, p2_iter)
-        p2 = p_2_prev + stp*p2_dot_fun(theta1_iter, theta2_iter, p1_iter, p2_iter)
-
-        while hgh_rel_err([theta1, theta2, p1, p2], [theta1_iter, theta2_iter, p1_iter, p2_iter]):
-            theta1_iter = theta_1*r + theta1*(1-r)
-            theta2_iter = theta_2*r + theta2*(1-r)
-            p1_iter = p_1*r + p1*(1-r)
-            p2_iter = p_2*r + p2*(1-r)
-
-            theta1 = theta_1_prev + stp*theta1_dot_fun(theta1_iter, theta2_iter, p1_iter, p2_iter)
-            theta2 = theta_2_prev + stp*theta2_dot_fun(theta1_iter, theta2_iter, p1_iter, p2_iter)
-            p1 = p_1_prev + stp*p1_dot_fun(theta1_iter, theta2_iter, p1_iter, p2_iter)
-            p2 = p_2_prev + stp*p2_dot_fun(theta1_iter, theta2_iter, p1_iter, p2_iter)
-
-        theta1_dot = theta1_dot_fun(theta1, theta2, p1, p2)
-        theta2_dot = theta2_dot_fun(theta1, theta2, p1, p2)
-    states_arr.append([t, theta1, theta2, theta1_dot, theta2_dot, p1, p2])
-    return states_arr

@@ -24,39 +24,16 @@ def p1_dot_fun(theta1, theta2, theta1_dot, theta2_dot):
 def p2_dot_fun(theta1, theta2, p1, p2):
     return ((-m*(l**2))/2) * (-theta1_dot*theta2_dot*sin(theta1-theta2) + (g*sin(theta2))/l)
 
-def explct(stp):
-    states_arr = [[]]
-    t = ti
-    theta1 = theta1_i
-    theta2 = theta2_i
-    p1 = p1_i
-    p2 = p2_i
-    theta1_dot = theta1_dot_fun(theta1, theta2, p1, p2)
-    theta2_dot = theta2_dot_fun(theta1, theta2, p1, p2)
-    while (t < tf+stp):
-            states_arr.append([t, theta1, theta2, theta1_dot, theta2_dot, p1, p2])
-            t = ti
-            theta1 = theta_1 + stp*theta1_dot_fun(theta1, theta2, p1, p2)
-            theta2 = theta_2 + stp*theta2_dot_fun(theta1, theta2, p1, p2)
-            p1 = p_1 + stp*p1_dot_fun(theta1, theta2, p1, p2)
-            p2 = p_2 + stp*p2_dot_fun(theta1, theta2, p1, p2)
+def explct(stp, theta1, theta2, p1, p2):
+            theta1 = theta1 + stp*theta1_dot_fun(theta1, theta2, p1, p2)
+            theta2 = theta2 + stp*theta2_dot_fun(theta1, theta2, p1, p2)
+            p1 = p1 + stp*p1_dot_fun(theta1, theta2, p1, p2)
+            p2 = p2 + stp*p2_dot_fun(theta1, theta2, p1, p2)
             theta1_dot = theta1_dot_fun(theta1, theta2, p1, p2)
             theta2_dot = theta2_dot_fun(theta1, theta2, p1, p2)
-    states_arr.append([t, theta1, theta2, theta1_dot, theta2_dot, p1, p2])
-    return states_arr
+            return theta1, theta2, p1, p2, theta1_dot, theta2_dot
 
 def implct(stp):
-    states_arr = [[]]
-    t = ti
-    theta1 = theta1_i
-    theta2 = theta2_i
-    p1 = p1_i
-    p2 = p2_i
-    theta1_dot = theta1_dot_fun(theta1, theta2, p1, p2)
-    theta2_dot = theta2_dot_fun(theta1, theta2, p1, p2)
-    while (t < tf+stp):
-        states_arr.append([t, theta1, theta2, theta1_dot, theta2_dot, p1, p2])
-        t = ti
         theta1_iter = theta1_prev = theta_1
         theta2_iter = theta2_prev = theta_2
         p1_iter = p1_prev = p_1
@@ -80,8 +57,7 @@ def implct(stp):
 
         theta1_dot = theta1_dot_fun(theta1, theta2, p1, p2)
         theta2_dot = theta2_dot_fun(theta1, theta2, p1, p2)
-    states_arr.append([t, theta1, theta2, theta1_dot, theta2_dot, p1, p2])
-    return states_arr
+        return theta1, theta2, p1, p2, theta1_dot, theta2_dot
 
 # f = open("out.txt", "r")
 # dat = []

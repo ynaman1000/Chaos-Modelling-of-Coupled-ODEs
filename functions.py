@@ -33,14 +33,14 @@ def explct(stp, theta1, theta2, p1, p2):
             theta2_dot = theta2_dot_fun(theta1, theta2, p1, p2)
             return theta1, theta2, p1, p2, theta1_dot, theta2_dot
 
-def implct(stp):
-        theta1_iter = theta1_prev = theta_1
-        theta2_iter = theta2_prev = theta_2
-        p1_iter = p1_prev = p_1
-        p2_iter = p2_prev = p_2
+def implct(stp, theta1, theta2, p1, p2):
+        theta1_iter = theta1_prev = theta1
+        theta2_iter = theta2_prev = theta2
+        p1_iter = p1_prev = p1
+        p2_iter = p2_prev = p2
 
-        theta1 = theta_1_prev + stp*theta1_dot_fun(theta1_iter, theta2_iter, p1_iter, p2_iter)
-        theta2 = theta_2_prev + stp*theta2_dot_fun(theta1_iter, theta2_iter, p1_iter, p2_iter)
+        theta1 = theta1_prev + stp*theta1_dot_fun(theta1_iter, theta2_iter, p1_iter, p2_iter)
+        theta2 = theta2_prev + stp*theta2_dot_fun(theta1_iter, theta2_iter, p1_iter, p2_iter)
         p1 = p_1_prev + stp*p1_dot_fun(theta1_iter, theta2_iter, p1_iter, p2_iter)
         p2 = p_2_prev + stp*p2_dot_fun(theta1_iter, theta2_iter, p1_iter, p2_iter)
 

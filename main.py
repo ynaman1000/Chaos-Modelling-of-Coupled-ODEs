@@ -6,10 +6,6 @@ l = 1
 g = 9.81
 ti = 0
 tf = 10
-theta1_i = np.pi
-theta2_i = 0.0
-p1_i = 0.0
-p2_i = 0.01
 tol = 1e-6
 r = 0.01
 
@@ -86,6 +82,11 @@ def implct(stp):
         theta2_dot = theta2_dot_fun(theta1, theta2, p1, p2)
     states_arr.append([t, theta1, theta2, theta1_dot, theta2_dot, p1, p2])
     return states_arr
+
+theta1_i = np.array([1,1,1.0012,1,1,1,1,1.0012])*np.pi/2
+theta2_i = np.array([1,0.9988,1,1,1,1,1,0.9988])*np.pi/2
+p1_i = np.array([0,0,0,0.01,0,-0.01,0,0.01])
+p2_i = np.array([0,0,0,0,0.01,0,-0.01,-0.01])
 
 # f = open("out.txt", "r")
 # dat = []

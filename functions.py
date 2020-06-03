@@ -83,11 +83,6 @@ def implct(stp):
     states_arr.append([t, theta1, theta2, theta1_dot, theta2_dot, p1, p2])
     return states_arr
 
-theta1_i = np.array([1,1,1.0012,1,1,1,1,1.0012])*np.pi/2
-theta2_i = np.array([1,0.9988,1,1,1,1,1,0.9988])*np.pi/2
-p1_i = np.array([0,0,0,0.01,0,-0.01,0,0.01])
-p2_i = np.array([0,0,0,0,0.01,0,-0.01,-0.01])
-
 # f = open("out.txt", "r")
 # dat = []
 # while True:

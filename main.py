@@ -32,8 +32,8 @@ for j in range (0,8):
             if solver == "I":
               theta1, theta2, p1, p2, theta1_dot, theta2_dot = implct(stp, theta1, theta2, p1, p2)
             if solver == "RK4":
-              theta1, theta2, p1, p2, theta1_dot, theta2_dot = RK4(stp, theta1, theta2, p1, p2)
+              theta1, theta2, p1, p2, theta1_dot, theta2_dot = rk4(stp, theta1, theta2, p1, p2)
             if solver == "RK6":
-              theta1, theta2, p1, p2, theta1_dot, theta2_dot = RK6(stp, theta1, theta2, p1, p2)
+              theta1, theta2, p1, p2, theta1_dot, theta2_dot = rk6(stp, theta1, theta2, p1, p2)
     states_arr.append([t, theta1, theta2, theta1_dot, theta2_dot, p1, p2])
   

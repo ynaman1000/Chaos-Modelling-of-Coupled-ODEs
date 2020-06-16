@@ -99,7 +99,7 @@ def solve(theta1, theta2, p1, p2, m, l, stp, ti, tf, solver, rel_err_tol=1e-6, r
         states = np.asarray(states_arr)
         # print(states.shape)
 
-        return states
+    return states
 
 # f = open("out.txt", "r")
 # dat = []

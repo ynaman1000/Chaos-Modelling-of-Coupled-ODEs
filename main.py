@@ -17,7 +17,7 @@ tf = 2
 #"E" is explicit is used
 #(not implemented) "rk4" if RK4 is used
 #(not implemented) "rk6" if RK6 is used
-solver = "E"
+solver = "I"
 if (solver == "I"):             # setting up optional variables
     rel_err_tol = 1e-6                  # default value is 1e-6
     r = 0.0                    # default value is 0
@@ -35,6 +35,7 @@ for j in range(ms.size):
             Y1 = []
             Y2 = []
 
+            # print(np.size(states[:, 0]))
             for xi in range(np.size(states[:,0])):
                 X1.append(ls[k]*np.sin(states[xi,1])/2)
                 Y1.append(-ls[k]*np.cos(states[xi,1])/2) 
@@ -46,6 +47,7 @@ for j in range(ms.size):
             # print(len(X1), len(X2), len(Y1), len(Y2))
             # ax1.plot(states[:,1], states[:,2], label=str(i+1))
             # ax1.plot(X1,Y1,label=str(i+1))
+            # print(X2, Y2)
             plt.plot(X2,Y2,label=str(i+1))
     
         # ax1.xlabel("X-axis")

@@ -2,16 +2,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 from functions import *
 
-theta1_i = np.array([1,1,1.0012,1,1,1,1,1.0012])*np.pi/2
-theta2_i = np.array([1,0.9988,1,1,1,1,1,0.9988])*np.pi/2
-p1_i = np.array([0,0,0,0.01,0,-0.01,0,0.01])
-p2_i = np.array([0,0,0,0,0.01,0,-0.01,-0.01])
+theta1_i = np.array([np.pi, np.pi+0.01, np.pi, np.pi+0.1])
+theta2_i = np.array([np.pi+0.01, np.pi, np.pi-0.1, np.pi])
+p1_i = np.array([0.0, 0.0, 0.0, 0.0])
+p2_i = np.array([0.0, 0.0, 0.0, 0.0])
 ni = theta1_i.size
 
 ms = np.array([1.0])
 ls = np.array([1.0])
 
-stp = 0.01
+stp = 0.001
 ti = 0.0
 tf = 2.0
 
@@ -20,7 +20,7 @@ tf = 2.0
 #"E" is explicit is used
 #(not implemented) "rk4" if RK4 is used
 #(not implemented) "rk6" if RK6 is used
-solver = "I"
+solver = "E"
 if (solver == "I"):             # setting up optional variables
     rel_err_tol = 1e-6                  # default value is 1e-6
     r = 0.0                    # default value is 0

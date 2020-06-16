@@ -6,7 +6,14 @@ theta1_i = np.array([1,1,1.0012,1,1,1,1,1.0012])*np.pi/2
 theta2_i = np.array([1,0.9988,1,1,1,1,1,0.9988])*np.pi/2
 p1_i = np.array([0,0,0,0.01,0,-0.01,0,0.01])
 p2_i = np.array([0,0,0,0,0.01,0,-0.01,-0.01])
+ni = theta1_i.size
+
+ms = np.array([1.0])
+ls = np.array([1.0])
+
 stp = 0.01
+ti = 0.0
+tf = 2.0
 
 #set solver to 
 #"I" if implicit is used

@@ -1,5 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 270b885... final rearrangment
 from functions import *
 
 theta1_i = np.array([np.pi, np.pi+0.01, np.pi, np.pi+0.1])
@@ -7,6 +10,10 @@ theta2_i = np.array([np.pi+0.01, np.pi, np.pi-0.1, np.pi])
 p1_i = np.array([0.0, 0.0, 0.0, 0.0])
 p2_i = np.array([0.0, 0.0, 0.0, 0.0])
 ni = theta1_i.size
+<<<<<<< HEAD
+=======
+
+>>>>>>> 270b885... final rearrangment
 ms = np.array([1.0])
 ls = np.array([1.0])
 

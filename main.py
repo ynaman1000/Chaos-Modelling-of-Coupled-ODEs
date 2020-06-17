@@ -39,7 +39,7 @@ for slvr in slvrs:
 clrs = ['b', 'k', 'g', 'r', 'y', 'c'] # list of colours to be used for plotting, extend list if needed
 # CAUTION: for sensible output make sure that only 1 for loop is iterating more than once
 # ........ therfore all but 1 or 2 of the following variables should be 1.
-I, J, K, L, M = 1, len(slvrs), 1, lss.shape[0], 1
+I, J, K, L, M = 1, 1, 1, 1, 1
 lbls0 = [""]*I*J*K*L*M
 
 ### from next 8 lines, either uncomment first 4 or last 4 depending on the plot required

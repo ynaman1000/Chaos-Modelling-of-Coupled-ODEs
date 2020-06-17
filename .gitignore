@@ -1,3 +1,9 @@
 160100012_160100097.pdf
 Abstract.odt
 .gitignore~
+/.fuse_hidden000007c300000001
+/__pycache__/plot.cpython-38.pyc
+/p.py
+/p.py~
+/plot.png
+/plot_temp.py

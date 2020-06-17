@@ -81,3 +81,7 @@ def solve(stp, ti, tf, slvr, ys, ms, ls):
         states.append([t, ys[0], ys[1], theta1_dot_fun(ys, ms, ls), theta2_dot_fun(ys, ms, ls), ys[2], ys[3]])
     # print(len(states), len(states[0]))
     return np.array(states, dtype=np.float64)
+
+
+
+    

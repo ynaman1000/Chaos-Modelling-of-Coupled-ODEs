@@ -40,7 +40,18 @@ clrs = ['b', 'k', 'g', 'r', 'y', 'c'] # list of colours to be used for plotting,
 # CAUTION: for sensible output make sure that only 1 for loop is iterating more than once
 # ........ therfore all but 1 or 2 of the following variables should be 1.
 I, J, K, L, M = 1, len(slvrs), 1, lss.shape[0], 1
-lbls0 = [""]*I*J*K*L*M                  
+lbls0 = [""]*I*J*K*L*M
+
+### from next 8 lines, either uncomment first 4 or last 4 depending on the plot required
+# plt_fun = plt_lnk2_cm
+# ttl = "Trajectory of the centre of 2nd link"
+# xlbl, ylbl = "X-axis", "Y-axis"
+# aspct = "equal"
+ttl = "Total energy of the system"
+xlbl, ylbl = "time", "Total energy"
+aspct = "auto"
+plt_fun = plt_te
+
 fig, axs = plt.subplots(nrows = L, ncols = 1) # change first argument of plt_lnk2_cm based on nrows and ncols
 for i in range(0, I):             # iterating over initial conditions, ys_inits
     if I != 1:
@@ -71,24 +82,23 @@ for i in range(0, I):             # iterating over initial conditions, ys_inits
                     plt_i = (((i*J + j)*K + k)*L + l)*M + m # index of lbls and clrs
                     states = solve(stps[k], ti, tf, slvrs[j], ys_inits[i], mss[m], lss[l])
                     if type(axs) is np.ndarray:
-                        plt_lnk2_cm(axs[l], states, lss[l], lblsm[plt_i], slvrs[j]["solver"], clrs[plt_i])
+                        plt_fun(axs[l], states, lss[l], mss[m], lblsm[plt_i], clrs[plt_i])
                     else:
-                        plt_lnk2_cm(axs, states, lss[l], lblsm[plt_i], slvrs[j]["solver"], clrs[plt_i])
+                        plt_fun(axs, states, lss[l], mss[m], lblsm[plt_i], clrs[plt_i])
 
 if type(axs) is np.ndarray:
     for ax in axs:
-        ax.set_xlabel("X-axis")
-        ax.set_ylabel("Y-axis")
+        ax.set_xlabel(xlbl)
+        ax.set_ylabel(ylbl)
         ax.legend()
-        ax.set_aspect("equal")
+        ax.set_aspect(aspct)
 else:
-    axs.set_xlabel("X-axis")
-    axs.set_ylabel("Y-axis")
+    axs.set_xlabel(xlbl)
+    axs.set_ylabel(ylbl)
     axs.legend()
-    axs.set_aspect("equal")
-fig.suptitle("Trajectory of the centre of 2nd link")
+    axs.set_aspect(aspct)
+fig.suptitle(ttl)
 now = datetime.now()
 current_time = str(now.strftime("%H:%M:%S"))
 fig.savefig("plot_" + current_time.replace(":", "_") + ".svg")
 plt.show()
-    

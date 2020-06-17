@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ea70cb7... completed implementatiion of rk6 and reformatted code
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -12,6 +15,7 @@ def plt_lnk2_cm(ax, states, ls, stp, solver, clr):
     # clr is string (1 character), color of curve to be plotted
     print("plotting trajectory of centre of mass of 2nd link")
     X1, X2, Y1, Y2 = [], [], [], []
+<<<<<<< HEAD
     for i in range(np.size(states[:,0])):
         X1.append(ls[0]*np.sin(states[i,1])/2)
         Y1.append(-ls[0]*np.cos(states[i,1])/2) 
@@ -136,61 +140,17 @@ for j in range (ni):
     Y1 = []
     Y2 = []
     
+=======
+>>>>>>> ea70cb7... completed implementatiion of rk6 and reformatted code
     for i in range(np.size(states[:,0])):
-        X1.append(l*np.sin(states[i,1])/2)
-        Y1.append(-l*np.cos(states[i,1])/2) 
-        X2.append(2*X1[i] + l*np.sin(states[i,2])/2)
-        Y2.append(2*Y1[i] - l*np.cos(states[i,2])/2)
-        
-    # fig, ax1 = plt.subplots()   
-    # fig, ax2 = plt.subplots()
-    # print(len(X1), len(X2), len(Y1), len(Y2))
-    # ax1.plot(states[:,1], states[:,2], label=str(j+1))
-    # ax1.plot(X1,Y1,label=str(j+1))
-    plt.plot(X2,Y2,color="red")
-plt.plot(X2,Y2,label="0.005 sec",color="red")
+        X1.append(ls[0]*np.sin(states[i,1])/2)
+        Y1.append(-ls[0]*np.cos(states[i,1])/2) 
+        X2.append(2*X1[i] + ls[1]*np.sin(states[i,2])/2)
+        Y2.append(2*Y1[i] - ls[1]*np.cos(states[i,2])/2)
+    ax.plot(X2, Y2, label=solver+": stp="+str(stp), color=clr)
 
-
-stp = 0.01
-for j in range (ni):
-    print("initial conditions: ", j+1, "/", ni)
-    states_arr = []
-    theta1 = theta1_i[j]
-    theta2 = theta2_i[j]
-    p1 = p1_i[j]
-    p2 = p2_i[j]
-    # theta1_dot = theta1_dot_i[j]
-    # theta2_dot = theta2_dot_i[j]
-    t = ti
     
-    while (t < tf):
-        # print(t)
-        theta1_dot = theta1_dot_fun(theta1, theta2, p1, p2)
-        theta2_dot = theta2_dot_fun(theta1, theta2, p1, p2)
-        states_arr.append([t, theta1, theta2, theta1_dot, theta2_dot, p1, p2])
-        t += stp
-        if solver == "E":
-            theta1, theta2, p1, p2 = explct(stp, theta1, theta2, p1, p2)
-        elif solver == "I":
-            theta1, theta2, p1, p2 = implct(stp, theta1, theta2, p1, p2, rel_err_tol, r)
-        elif solver == "RK4":
-            theta1, theta2, p1, p2 = rk4(stp, theta1, theta2, p1, p2)
-        elif solver == "RK6":
-            theta1, theta2, p1, p2 = rk6(stp, theta1, theta2, p1, p2)
-    theta1_dot = theta1_dot_fun(theta1, theta2, p1, p2)
-    theta2_dot = theta2_dot_fun(theta1, theta2, p1, p2)
-    states_arr.append([t, theta1, theta2, theta1_dot, theta2_dot, p1, p2])
-    # print(states_arr)
-    # print(len(states_arr), len(states_arr[0]))
-    states = np.asarray(states_arr)
-    # print(states.shape)
-
-    print("plotting...")
-    X1 = []
-    X2 = []
-    Y1 = []
-    Y2 = []
-    
+<<<<<<< HEAD
     for i in range(np.size(states[:,0])):
         X1.append(l*np.sin(states[i,1])/2)
         Y1.append(-l*np.cos(states[i,1])/2) 
@@ -273,3 +233,5 @@ plt.legend()
 plt.title("Trajectory of the centre of 2nd link")
 plt.show()
 >>>>>>> bebeb27... plotting code
+=======
+>>>>>>> ea70cb7... completed implementatiion of rk6 and reformatted code

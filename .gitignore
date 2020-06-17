@@ -2,6 +2,7 @@
 Abstract.odt
 .gitignore~
 <<<<<<< HEAD
+<<<<<<< HEAD
 /.fuse_hidden000007c300000001
 /__pycache__/plot.cpython-38.pyc
 /p.py
@@ -14,3 +15,11 @@ Abstract.odt
 /plot.png
 /plot_temp.py
 /.fuse_hidden000007c300000001
+=======
+/*.pyc
+/p.py
+/__pycache__/plot.cpython-38.pyc
+/p.py~
+/plot.png
+/plot_temp.py
+>>>>>>> ea70cb7... completed implementatiion of rk6 and reformatted code

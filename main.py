@@ -39,7 +39,7 @@ for slvr in slvrs:
 clrs = ['b', 'k', 'g', 'r', 'y', 'c'] # list of colours to be used for plotting, extend list if needed
 # CAUTION: for sensible output make sure that only 1 for loop is iterating more than once
 # ........ therfore all but 1 or 2 of the following variables should be 1.
-I, J, K, L, M = 1, 1, 1, 1, 1
+I, J, K, L, M = 1, len(slvrs), 1, len(lss), 1
 lbls0 = [""]*I*J*K*L*M
 
 ### from next 8 lines, either uncomment first 4 or last 4 depending on the plot required
@@ -70,12 +70,12 @@ for i in range(0, I):             # iterating over initial conditions, ys_inits
                 lblsk = lblsj
             for l in range(0, L):     # iterating over lengths, lss
                 if L != 1:
-                    lblsl = [str(lss[l])+" | "+lbl for lbl in lblsk]
+                    lblsl = ["l: "+str(lss[l])+" | "+lbl for lbl in lblsk]
                 else:
                     lblsl = lblsk
                 for m in range(0, M): # iterating over masses, mss
                     if M != 1:
-                        lblsm = [str(mss[m])+" | "+lbl for lbl in lblsl]
+                        lblsm = ["m: "+str(mss[m])+" | "+lbl for lbl in lblsl]
                     else:
                         lblsm = lblsl
                     print("initial conditions: ", ys_inits[i])

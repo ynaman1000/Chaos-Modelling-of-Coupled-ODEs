@@ -54,4 +54,3 @@ ax.legend()
 ax.set_title("Trajectory of the centre of 2nd link")
 fig.savefig("plot1.svg")
 # plt.show()
-

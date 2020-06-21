@@ -70,7 +70,8 @@ def solve(stp, ti, tf, slvr, ys, ms, ls):
     t = ti
     states = [[t, ys[0], ys[1], theta1_dot_fun(ys, ms, ls), theta2_dot_fun(ys, ms, ls), ys[2], ys[3]]]
     while (t < tf+stp):
-        # print(t)
+        if int(t/stp)%int(1/stp) == 0:
+            print(t)
         t += stp
         if slvr["solver"] == "E":
             ys = explct(stp, ys, ms, ls)

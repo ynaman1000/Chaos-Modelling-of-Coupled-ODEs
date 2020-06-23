@@ -23,7 +23,7 @@ def plt_te(ax, states, ls, ms, lbl, clr):
     # ms is 1-D numpy array, [m1, m2]
     print("plotting total energy of the system")
     g = 9.81
-    Is = [(ms[i]*(ls[i]**2))/12 for i in range(2)]
+    Is = [(ms[i]*(ls[i]**2))/12.0 for i in range(2)]
     y1 = -(ls[0]*np.cos(states[:, 1]))/2
     y2 = -ls[0]*np.cos(states[:, 1]) - (ls[1]*np.cos(states[:, 2]))/2
     x1_dot = (ls[0]*np.cos(states[:, 1])*states[:, 3])/2

@@ -32,7 +32,7 @@ for slvr in slvrs:
         slvr["r"] = 0.0                     # default value is 0
 
 # choosing the plotting function plt_lnk2_cm or plt_te
-plt_fun = plt_te
+plt_fun = plt_lnk2_cm
 
 # choosing which parameters to iterate over
 # CAUTION: for sensible output make sure that only 1 for loop is iterating more than once
